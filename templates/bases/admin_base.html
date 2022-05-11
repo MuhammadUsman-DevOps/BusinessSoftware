@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta name="description" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'vendors/morris.js/morris.css' %}" rel="stylesheet" type="text/css"/>
+
+    <!-- Toggles CSS -->
+    <link href="{% static 'vendors/jquery-toggles/css/toggles.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendors/jquery-toggles/css/themes/toggles-light.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Toastr CSS -->
+    <link href="{% static 'vendors/jquery-toast-plugin/dist/jquery.toast.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+
+    <!-- Data Table CSS -->
+    <link href="{% static 'vendors/datatables.net-dt/css/jquery.dataTables.min.css' %}" rel="stylesheet"
+          type="text/css"/>
+
+    <link href="{% static 'vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css' %}" rel="stylesheet"
+          type="text/css"/>
+
+    {% block extra_style %}
+    {% endblock extra_style %}
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="preloader-it">
+    <div class="loader-pendulums"></div>
+</div>
+<!-- /Preloader -->
+
+<!-- HK Wrapper -->
+<div class="hk-wrapper hk-vertical-nav">
+    {% block top_bar %}
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
+            <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
+                    class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="dashboard1.html">
+                <img class="brand-img d-inline-block" src="{% static 'img/logo-light.png' %}" alt="brand"/>
+            </a>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item">
+                    <a id="navbar_search_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span
+                            class="feather-icon"><i data-feather="search"></i></span></a>
+                </li>
+                <li class="nav-item">
+                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span
+                            class="feather-icon"><i data-feather="settings"></i></span></a>
+                </li>
+                <li class="nav-item dropdown dropdown-notifications">
+                    <a class="nav-link dropdown-toggle no-caret" href="dashboard2.html#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i
+                            data-feather="bell"></i></span><span class="badge-wrap"><span
+                            class="badge badge-primary badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn"
+                         data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">View all</a>
+                        </h6>
+                        <div class="notifications-nicescroll-bar">
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="{% static 'img/avatar1.jpg' %}" alt="user"
+                                                 class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">Evie Ono</span>
+                                                accepted your invitation to join the team
+                                            </div>
+                                            <div class="notifications-time">12m</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <img src="{% static 'img/avatar2.jpg' %}" alt="user"
+                                                 class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">New message received from <span
+                                                    class="text-dark text-capitalize">Misuko Heid</span></div>
+                                            <div class="notifications-time">1h</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-primary rounded-circle">
+													<span class="initial-wrap"><span><i
+                                                            class="zmdi zmdi-account font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">You have a follow up with<span
+                                                    class="text-dark text-capitalize"> Mintos head</span> on <span
+                                                    class="text-dark text-capitalize">friday, dec 19</span> at <span
+                                                    class="text-dark">10.00 am</span></div>
+                                            <div class="notifications-time">2d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-success rounded-circle">
+													<span class="initial-wrap"><span>A</span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Application of <span
+                                                    class="text-dark text-capitalize">Sarah Williams</span> is waiting
+                                                for your approval
+                                            </div>
+                                            <div class="notifications-time">1w</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <div class="media">
+                                    <div class="media-img-wrap">
+                                        <div class="avatar avatar-sm">
+                                            <span class="avatar-text avatar-text-warning rounded-circle">
+													<span class="initial-wrap"><span><i
+                                                            class="zmdi zmdi-notifications font-18"></i></span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div>
+                                            <div class="notifications-text">Last 2 days left for the project</div>
+                                            <div class="notifications-time">15d</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="dashboard2.html#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media">
+                            <div class="media-img-wrap">
+                                <div class="avatar">
+                                    <img src="{% static 'img/avatar12.jpg' %}" alt="user"
+                                         class="avatar-img rounded-circle">
+                                </div>
+                                <span class="badge badge-success badge-indicator"></span>
+                            </div>
+                            <div class="media-body">
+                                <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX"
+                         data-dropdown-out="flipOutX">
+                        <a class="dropdown-item" href="profile.html"><i
+                                class="dropdown-icon zmdi zmdi-account"></i><span>Profile</span></a>
+                        <a class="dropdown-item" href="dashboard2.html#"><i
+                                class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
+                        <a class="dropdown-item" href="https://hencework.com/theme/griffin/inbox.html"><i
+                                class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
+                        <a class="dropdown-item" href="dashboard2.html#"><i
+                                class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                        <div class="dropdown-divider"></div>
+                        <div class="sub-dropdown-menu show-on-hover">
+                            <a href="dashboard2.html#" class="dropdown-toggle dropdown-item no-caret"><i
+                                    class="zmdi zmdi-check text-success"></i>Online</a>
+                            <div class="dropdown-menu open-left-side">
+                                <a class="dropdown-item" href="dashboard2.html#"><i
+                                        class="dropdown-icon zmdi zmdi-check text-success"></i><span>Online</span></a>
+                                <a class="dropdown-item" href="dashboard2.html#"><i
+                                        class="dropdown-icon zmdi zmdi-circle-o text-warning"></i><span>Busy</span></a>
+                                <a class="dropdown-item" href="dashboard2.html#"><i
+                                        class="dropdown-icon zmdi zmdi-minus-circle-outline text-danger"></i><span>Offline</span></a>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="dashboard2.html#"><i
+                                class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+    {% endblock top_bar %}
+    {% block side_bar %}
+        <!-- Vertical Nav -->
+        <nav class="hk-nav hk-nav-light">
+            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i
+                    data-feather="x"></i></span></a>
+            <div class="nicescroll-bar">
+                <div class="navbar-nav-wrap">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'dashboard' %}">
+                                <span class="feather-icon"><i data-feather="activity"></i></span>
+                                <span class="nav-link-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#app_drp">
+                                <span class="feather-icon"><i data-feather="package"></i></span>
+                                <span class="nav-link-text">User Management</span>
+                            </a>
+                            <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'users' %}">Users</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'roles' %}">Roles</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#CMS_drp">
+                                <span class="feather-icon"><i data-feather="monitor"></i></span>
+                                <span class="nav-link-text">CMS</span>
+                            </a>
+                            <ul id="CMS_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'pages' %}">Pages</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="">Blog Post</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'announcements' %}">Announcements</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="">News Letter</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#payment_drp">
+                                <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
+                                <span class="nav-link-text">Payments</span>
+                            </a>
+                            <ul id="payment_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'payment_methods' %}">payment Methods</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Webhook Calls</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Tax Classes</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Currencies</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'invoices' %}">Invoices</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#subscriptions_drp">
+                                <span class="feather-icon"><i data-feather="package"></i></span>
+                                <span class="nav-link-text">Subscriptions</span>
+                            </a>
+                            <ul id="subscriptions_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Subscriptions Plans</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Plan Features</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#support_drp">
+                                <span class="feather-icon"><i data-feather="file-minus"></i></span>
+                                <span class="nav-link-text">Support Tickets</span>
+                            </a>
+                            <ul id="support_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Support Tickets</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Teams</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Issue Types</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#utility_drp">
+                                <span class="feather-icon"><i data-feather="anchor"></i></span>
+                                <span class="nav-link-text">Utilities</span>
+                            </a>
+                            <ul id="utility_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Testimonials</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Content Consents</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#settings_drp">
+                                <span class="feather-icon"><i data-feather="settings"></i></span>
+                                <span class="nav-link-text">Settings</span>
+                            </a>
+                            <ul id="settings_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Notifications</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Menu</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Settings</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Activities</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Backups</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <hr class="nav-separator">
+                    <div class="nav-header">
+                        <span>Authentication</span>
+                        <span>Auth</span>
+                    </div>
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="feather-icon"><i data-feather="settings"></i></span>
+                                <span class="nav-link-text">Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="feather-icon"><i data-feather="power"></i></span>
+                                <span class="nav-link-text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+        <!-- /Vertical Nav -->
+    {% endblock side_bar %}
+    {% block main_content %}
+
+    {% endblock main_content %}
+
+</div>
+<!-- /HK Wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'vendors/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+<!-- Slimscroll JavaScript -->
+<script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+
+<!-- Fancy Dropdown JS -->
+<script src="{% static 'js/dropdown-bootstrap-extended.js' %}"></script>
+
+<!-- FeatherIcons JavaScript -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+
+<!-- Toggles JavaScript -->
+<script src="{% static 'vendors/jquery-toggles/toggles.min.js' %}"></script>
+<script src="{% static 'js/toggle-data.js' %}"></script>
+
+<!-- Toastr JS -->
+<script src="{% static 'vendors/jquery-toast-plugin/dist/jquery.toast.min.js' %}"></script>
+
+<!-- Counter Animation JavaScript -->
+<script src="{% static 'vendors/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'vendors/jquery.counterup/jquery.counterup.min.js' %}"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="{% static 'vendors/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'vendors/morris.js/morris.min.js' %}"></script>
+
+<!-- Easy pie chart JS -->
+<script src="{% static 'vendors/easy-pie-chart/dist/jquery.easypiechart.min.js' %}"></script>
+
+<!-- Flot Charts JavaScript -->
+<script src="{% static 'vendors/flot/excanvas.min.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.time.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.stack.js' %}"></script>
+<script src="{% static 'vendors/flot/jquery.flot.crosshair.js' %}"></script>
+<script src="{% static 'vendors/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+
+<!-- EChartJS JavaScript -->
+<script src="{% static 'vendors/echarts/dist/echarts-en.min.js' %}"></script>
+
+<!-- Init JavaScript -->
+<script src="{% static 'js/init.js' %}"></script>
+<script src="{% static 'js/dashboard2-data.js' %}"></script>
+
+<script src="{% static 'js/validation-data.js' %}"></script>
+
+
+<!-- Data Table JavaScript -->
+<script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-dt/js/dataTables.dataTables.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+<script src="{% static 'vendors/jszip/dist/jszip.min.js' %}"></script>
+<script src="{% static 'vendors/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{% static 'vendors/pdfmake/build/vfs_fonts.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'vendors/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'js/dataTables-data.js' %}"></script>
+
+
+{% block extra_js %}
+{% endblock extra_js %}
+</body>
+
+</html>
