@@ -1,0 +1,196 @@
+{% extends 'bases/company_base.html' %}
+{% load static %}
+{% block title %} Dashboard {% endblock title %}
+{% block main_content %}
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper">
+        <!-- Container -->
+        <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hk-row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">projects</span>
+                                    <div class="d-flex align-items-center justify-content-between position-relative">
+                                        <div>
+                                            <span class="d-block display-5 font-weight-400 text-dark">12+</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Expenses</span>
+                                    <div class="d-flex align-items-center justify-content-between position-relative">
+                                        <div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">$<span
+                                                            class="counter-anim">740,260</span></span>
+												</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Revenue</span>
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">$28,725</span>
+													<small>excl tax</small>
+												</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Profit</span>
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div>
+												<span class="d-block">
+													<span class="display-5 font-weight-400 text-dark">$28,725</span>
+												</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hk-row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-header card-header-action">
+                                    <h6>Income By Category</h6>
+                                    <div class="d-flex align-items-center card-action-wrap">
+                                        <div class="inline-block dropdown">
+                                            <a class="dropdown-toggle no-caret" data-toggle="dropdown"
+                                               href="dashboard2.html#" aria-expanded="false" role="button"><i
+                                                    class="ion ion-ios-more"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="dashboard2.html#">Action</a>
+                                                <a class="dropdown-item" href="dashboard2.html#">Another action</a>
+                                                <a class="dropdown-item" href="dashboard2.html#">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="dashboard2.html#">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="hk-legend-wrap mb-20">
+                                        <div class="hk-legend">
+                                            <span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Sales</span>
+                                        </div>
+                                        <div class="hk-legend">
+                                            <span class="d-10 bg-indigo-dark-5 rounded-circle d-inline-block"></span><span>Deposits</span>
+                                        </div>
+                                    </div>
+                                    <div id="e_chart_10" class="echart" style="height:291px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body pa-0">
+                                    <div class="table-wrap">
+                                        <div class="table-responsive">
+                                            <table class="table table-lg table-hover mb-0">
+                                                <thead class="thead-primary">
+                                                <tr>
+                                                    <th>Project</th>
+                                                    <th>Company</th>
+                                                    <th>Budget</th>
+                                                    <th class="w-20">Status</th>
+                                                    <th>Deadline</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Branding</td>
+                                                    <td>Pineapple Inc</td>
+                                                    <td>$2000</td>
+                                                    <td><span class="badge badge-success">Completed</span></td>
+                                                    <td>10 Nov 2018</td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+{% endblock main_content %}

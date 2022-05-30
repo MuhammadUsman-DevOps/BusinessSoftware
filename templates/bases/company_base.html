@@ -209,7 +209,7 @@
     {% endblock top_bar %}
     {% block side_bar %}
         <!-- Vertical Nav -->
-        <nav class="hk-nav hk-nav-light">
+        <nav class="hk-nav hk-nav-dark">
             <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i
                     data-feather="x"></i></span></a>
             <div class="nicescroll-bar">
@@ -225,16 +225,22 @@
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                                data-target="#app_drp">
                                 <span class="feather-icon"><i data-feather="package"></i></span>
-                                <span class="nav-link-text">User Management</span>
+                                <span class="nav-link-text">Business</span>
                             </a>
                             <ul id="app_drp" class="nav flex-column collapse collapse-level-1">
                                 <li class="nav-item">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'users' %}">Users</a>
+                                         <li class="nav-item">
+                                            <a class="nav-link" href="#">Cash Flow</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'roles' %}">Roles</a>
+                                            <a class="nav-link" href="#">Invoices</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Revenue</a>
+                                        </li>
+                                         <li class="nav-item">
+                                            <a class="nav-link" href="#">Quotes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -244,25 +250,22 @@
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                                data-target="#CMS_drp">
                                 <span class="feather-icon"><i data-feather="monitor"></i></span>
-                                <span class="nav-link-text">CMS</span>
+                                <span class="nav-link-text">Purchases</span>
                             </a>
                             <ul id="CMS_drp" class="nav flex-column collapse collapse-level-1">
                                 <li class="nav-item">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'pages' %}">Pages</a>
+                                            <a class="nav-link" href="#">Overview</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Bills</a>
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
+                                            <a class="nav-link" href="#">payments</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="">Blog Post</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'announcements' %}">Announcements</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="">News Letter</a>
+                                            <a class="nav-link" href="">Vendors</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -270,27 +273,66 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#payment_drp">
+                               data-target="#banking_drp">
                                 <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
-                                <span class="nav-link-text">Payments</span>
+                                <span class="nav-link-text">Banking</span>
                             </a>
-                            <ul id="payment_drp" class="nav flex-column collapse collapse-level-1">
+                            <ul id="banking_drp" class="nav flex-column collapse collapse-level-1">
                                 <li class="nav-item">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'payment_methods' %}">payment Methods</a>
+                                            <a class="nav-link" href="#">Accounts</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Webhook Calls</a>
+                                            <a class="nav-link" href="#">Transfers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Tax Classes</a>
+                                            <a class="nav-link" href="#">Transactions</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Currencies</a>
+                                            <a class="nav-link" href="#">Reconciliations</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#project_drp">
+                                <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
+                                <span class="nav-link-text">Project Management</span>
+                            </a>
+                            <ul id="project_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Projects</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'invoices' %}">Invoices</a>
+                                            <a class="nav-link" href="#">Time Entries</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Costs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                               data-target="#hr_drp">
+                                <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
+                                <span class="nav-link-text">HR Management</span>
+                            </a>
+                            <ul id="hr_drp" class="nav flex-column collapse collapse-level-1">
+                                <li class="nav-item">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Employees</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Payroll</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -300,38 +342,26 @@
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                                data-target="#subscriptions_drp">
                                 <span class="feather-icon"><i data-feather="package"></i></span>
-                                <span class="nav-link-text">Subscriptions</span>
+                                <span class="nav-link-text">Accounting</span>
                             </a>
                             <ul id="subscriptions_drp" class="nav flex-column collapse collapse-level-1">
                                 <li class="nav-item">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Subscriptions Plans</a>
+                                            <a class="nav-link" href="#">Reports</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Plan Features</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#support_drp">
-                                <span class="feather-icon"><i data-feather="file-minus"></i></span>
-                                <span class="nav-link-text">Support Tickets</span>
-                            </a>
-                            <ul id="support_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Support Tickets</a>
+                                            <a class="nav-link" href="#">Balance Sheet</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Teams</a>
+                                            <a class="nav-link" href="#">Account Transactions</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Issue Types</a>
+                                            <a class="nav-link" href="#">Profit Loss</a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Fixed Assets</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -339,46 +369,42 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#utility_drp">
-                                <span class="feather-icon"><i data-feather="anchor"></i></span>
-                                <span class="nav-link-text">Utilities</span>
+                               data-target="#subscriptions_drp">
+                                <span class="feather-icon"><i data-feather="pie-chart"></i></span>
+                                <span class="nav-link-text">Reports</span>
                             </a>
-                            <ul id="utility_drp" class="nav flex-column collapse collapse-level-1">
+                            <ul id="subscriptions_drp" class="nav flex-column collapse collapse-level-1">
                                 <li class="nav-item">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Testimonials</a>
+                                            <a class="nav-link" href="#">Income/Expenses</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Content Consents</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#settings_drp">
-                                <span class="feather-icon"><i data-feather="settings"></i></span>
-                                <span class="nav-link-text">Settings</span>
-                            </a>
-                            <ul id="settings_drp" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Notifications</a>
+                                            <a class="nav-link" href="#">Projects</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Menu</a>
+                                            <a class="nav-link" href="#">HR</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Settings</a>
+                                            <a class="nav-link" href="#">Treasury</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Activities</a>
+                                            <a class="nav-link" href="#">Products</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Backups</a>
+                                            <a class="nav-link" href="#">Tax</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Debt</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Investment</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Allocation</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Capital</a>
                                         </li>
                                     </ul>
                                 </li>

@@ -19,7 +19,7 @@ class Role(models.Model):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to="users", null=True, blank=True, default="avatar.jpg")
     phone_number = models.CharField(max_length=50, null=True, blank=True)
     address = models.CharField(max_length=500, null=True, blank=True)

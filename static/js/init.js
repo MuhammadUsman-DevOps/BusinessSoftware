@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 /*****Load function start*****/
 $(window).on("load",function(){
-	$(".preloader-it").delay(500).fadeOut("slow");
+	$(".preloader-it").delay(200).fadeOut("slow");
 });
 /*****Load function* end*****/
 

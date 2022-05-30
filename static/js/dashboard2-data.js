@@ -3,17 +3,17 @@
 "use strict"; 
 $(document).ready(function() {
 	/*Toaster Alert*/
-	$.toast({
-		heading: 'Oh snap!',
-		text: '<p>Change a few things and try submitting again.</p>',
-		position: 'bottom-right',
-		loaderBg:'#3a55b1',
-		class: 'jq-toast-danger',
-		hideAfter: 3500, 
-		stack: 6,
-		showHideTransition: 'fade'
-	});
-	
+	// $.toast({
+	// 	heading: 'Oh snap!',
+	// 	text: '<p>Change a few things and try submitting again.</p>',
+	// 	position: 'bottom-right',
+	// 	loaderBg:'#3a55b1',
+	// 	class: 'jq-toast-danger',
+	// 	hideAfter: 3500,
+	// 	stack: 6,
+	// 	showHideTransition: 'fade'
+	// });
+	//
 	if( $('#pie_chart_1').length > 0 ){
 		$('#pie_chart_1').easyPieChart({
 			barColor : '#3a55b1',
@@ -567,10 +567,10 @@ var echartsConfig = function() {
 					radius: ['0', '50%'],
 					color: ['#3a55b1', '#536bbb', '#798cca', '#9caad8'],
 					data:[
-						{value:435, name:''},
-						{value:679, name:''},
-						{value:848, name:''},
-						{value:348, name:''},
+						{value:435, name:'Bills'},
+						{value:679, name:'Projects'},
+						{value:848, name:' Sales'},
+						{value:348, name:'Returns'},
 					],
 					label: {
 						normal: {

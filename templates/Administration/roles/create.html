@@ -10,677 +10,724 @@
                 <h5 class="hk-sec-title mb-30">Create Role</h5>
 
                 {#    FORM        #}
-                <div class="row">
-                    <div class="col-12 mt-30">
-                        <label for="name mt-25">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder=""
-                               value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
+                <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 mt-30">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-success">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <label for="name mt-25">Name</label>
+                            <input type="text" class="form-control" id="role_name" name="role_name" placeholder="Role Name"
+                                   value="{{ role.role_name }}" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+
+                            <div class="custom-control custom-checkbox mt-10">
+                                <input type="checkbox" class="custom-control-input" id="subscription_required" name="subscription_required" {% if role.subscription_required %} checked {% endif %}>
+                                <label class="custom-control-label" for="subscription_required">Is subscription required
+                                    for
+                                    this role?</label>
+                                <div class="invalid-feedback"> check this..</div>
+                            </div>
+                            <div class="custom-control custom-checkbox mt-10">
+                                <input type="checkbox" class="custom-control-input" id="disable_login" name="disable_login" {% if role.disable_login %} checked {% endif %}>
+                                <label class="custom-control-label" for="disable_login">Disable login?</label>
+                                <div class="invalid-feedback"> check this..</div>
+                            </div>
+
+                            <div class="row justify-content-end">
+                                <button type="button" class="btn btn-warning btn-sm">Toggle Collapse state</button>
+                                <button type="button" class="btn btn-success btn-sm ml-10">Check All</button>
+                                <button type="button" class="btn btn-danger btn-sm ml-10">Revoke All</button>
+                            </div>
+                            <hr/>
+                            <div class="row">
+
+                            </div>
+                            <p class="mt-10"><i class="fa fa-th-large"></i> Package <i class="fa fa-square ml-10"></i>
+                                Model
+                            </p>
+                            <hr/>
+
+                            <!-- Activity div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> Activity</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#activity"
+                                   aria-expanded="false" aria-controls="activity"><a><i class="fa fa-square mr-5"></i>activity
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="activity">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewactivity"
+                                                       >
+                                                <label class="custom-control-label" for="viewactivity">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deleteactivity"
+                                                       >
+                                                <label class="custom-control-label" for="deleteactivity">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#http_log"
+                                   aria-expanded="false" aria-controls="http_log"><a><i class="fa fa-square mr-5"></i>http_log
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="http_log">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="view_http_log"
+                                                       >
+                                                <label class="custom-control-label" for="view_http_log">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="delete_http_log"
+                                                       >
+                                                <label class="custom-control-label" for="delete_http_log">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!-- Activity div end  -->
+
+                            <!-- Settings div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> Settings</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#setting"
+                                   aria-expanded="false" aria-controls="setting"><a><i class="fa fa-square mr-5"></i>setting
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="setting">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewsetting"
+                                                       >
+                                                <label class="custom-control-label" for="viewsetting">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createsetting"
+                                                       >
+                                                <label class="custom-control-label" for="createsetting">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatesetting"
+                                                       >
+                                                <label class="custom-control-label" for="updatesetting">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletesetting"
+                                                       >
+                                                <label class="custom-control-label" for="deletesetting">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#custom_field_setting"
+                                   aria-expanded="false" aria-controls="custom_field_setting"><a><i
+                                        class="fa fa-square mr-5"></i>custom_field_setting
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="custom_field_setting">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewcustom_field_setting" >
+                                                <label class="custom-control-label"
+                                                       for="viewcustom_field_setting">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcustom_field_setting" >
+                                                <label class="custom-control-label"
+                                                       for="createcustom_field_setting">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecustom_field_setting" >
+                                                <label class="custom-control-label"
+                                                       for="updatecustom_field_setting">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecustom_field_setting"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletecustom_field_setting">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#module"
+                                   aria-expanded="false" aria-controls="module"><a><i class="fa fa-square mr-5"></i>module
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="module">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="manage_module"
+                                                       >
+                                                <label class="custom-control-label" for="manage_module">manage</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#theme"
+                                   aria-expanded="false" aria-controls="theme"><a><i class="fa fa-square mr-5"></i>theme
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="theme">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="manage_theme"
+                                                       >
+                                                <label class="custom-control-label" for="manage_theme">manage</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- Setting Div END-->
+
+                            <!-- User div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> User</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#user"
+                                   aria-expanded="false" aria-controls="user"><a><i class="fa fa-square mr-5"></i>user
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="user">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewuser"
+                                                       >
+                                                <label class="custom-control-label" for="viewuser">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createuser"
+                                                       >
+                                                <label class="custom-control-label" for="createuser">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updateuser"
+                                                       >
+                                                <label class="custom-control-label" for="updateuser">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deleteuser"
+                                                       >
+                                                <label class="custom-control-label" for="deleteuser">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#role"
+                                   aria-expanded="false" aria-controls="role"><a><i class="fa fa-square mr-5"></i>role
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="role">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewrole"
+                                                       >
+                                                <label class="custom-control-label" for="viewrole">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createrole"
+                                                       >
+                                                <label class="custom-control-label" for="createrole">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updaterole"
+                                                       >
+                                                <label class="custom-control-label" for="updaterole">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deleterole"
+                                                       >
+                                                <label class="custom-control-label" for="deleterole">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- user div end -->
+
+                            <!-- Notification div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> Notification</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse"
+                                   data-target="#Notification_template"
+                                   aria-expanded="false" aria-controls="Notification_template"><a><i
+                                        class="fa fa-square mr-5"></i>Notification_template
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="Notification_template">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewNotification_template" >
+                                                <label class="custom-control-label"
+                                                       for="viewNotification_template">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createNotification_template" >
+                                                <label class="custom-control-label"
+                                                       for="createNotification_template">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updateNotification_template" >
+                                                <label class="custom-control-label"
+                                                       for="updateNotification_template">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deleteNotification_template"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deleteNotification_template">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#my_notofication"
+                                   aria-expanded="false" aria-controls="my_notofication"><a><i
+                                        class="fa fa-square mr-5"></i>my_notofication
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="my_notofication">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewmy_notofication"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="viewmy_notofication">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createmy_notofication" >
+                                                <label class="custom-control-label"
+                                                       for="createmy_notofication">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatemy_notofication" >
+                                                <label class="custom-control-label"
+                                                       for="updatemy_notofication">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletemy_notofication"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletemy_notofication">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Notification div end -->
+                            <!-- Notification div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> Menu</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#menu"
+                                   aria-expanded="false" aria-controls="menu"><a><i class="fa fa-square mr-5"></i>menu
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="menu">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewmenu"
+                                                       >
+                                                <label class="custom-control-label" for="viewmenu">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createmenu"
+                                                       >
+                                                <label class="custom-control-label" for="createmenu">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatemenu"
+                                                       >
+                                                <label class="custom-control-label" for="updatemenu">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletemenu"
+                                                       >
+                                                <label class="custom-control-label" for="deletemenu">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Notification div end -->
+
+
+                            <!-- CMS div start  -->
+                            <div>
+                                <label class="mt-10 "><i class="fa fa-th-large"></i> CMS</label>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_post"
+                                   aria-expanded="false" aria-controls="cms_post"><a><i class="fa fa-square mr-5"></i>post
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_post">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_post"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_post">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createcms_post"
+                                                       >
+                                                <label class="custom-control-label" for="createcms_post">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatecms_post"
+                                                       >
+                                                <label class="custom-control-label" for="updatecms_post">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletecms_post"
+                                                       >
+                                                <label class="custom-control-label" for="deletecms_post">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_page"
+                                   aria-expanded="false" aria-controls="cms_page"><a><i class="fa fa-square mr-5"></i>page
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_page">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_page"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_page">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createcms_page"
+                                                       >
+                                                <label class="custom-control-label" for="createcms_page">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatecms_page"
+                                                       >
+                                                <label class="custom-control-label" for="updatecms_page">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletecms_page"
+                                                       >
+                                                <label class="custom-control-label" for="deletecms_page">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_category"
+                                   aria-expanded="false" aria-controls="cms_category"><a><i
+                                        class="fa fa-square mr-5"></i>category
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_category">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewcms_category"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_category">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcms_category"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="createcms_category">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecms_category"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="updatecms_category">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecms_category"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletecms_category">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#news"
+                                   aria-expanded="false" aria-controls="news"><a><i class="fa fa-square mr-5"></i>news
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="news">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewnews"
+                                                       >
+                                                <label class="custom-control-label" for="viewnews">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createnews"
+                                                       >
+                                                <label class="custom-control-label" for="createnews">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatenews"
+                                                       >
+                                                <label class="custom-control-label" for="updatenews">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletenews"
+                                                       >
+                                                <label class="custom-control-label" for="deletenews">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_slider"
+                                   aria-expanded="false" aria-controls="cms_slider"><a><i class="fa fa-square mr-5"></i>slider
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_slider">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_slider"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_slider">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcms_slider"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="createcms_slider">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecms_slider"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="updatecms_slider">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecms_slider"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletecms_slider">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_faq"
+                                   aria-expanded="false" aria-controls="cms_faq"><a><i class="fa fa-square mr-5"></i>faq
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_faq">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_faq"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_faq">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createcms_faq"
+                                                       >
+                                                <label class="custom-control-label" for="createcms_faq">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatecms_faq"
+                                                       >
+                                                <label class="custom-control-label" for="updatecms_faq">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletecms_faq"
+                                                       >
+                                                <label class="custom-control-label" for="deletecms_faq">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_block"
+                                   aria-expanded="false" aria-controls="cms_block"><a><i class="fa fa-square mr-5"></i>block
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_block">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_block"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_block">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="createcms_block"
+                                                       >
+                                                <label class="custom-control-label" for="createcms_block">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="updatecms_block"
+                                                       >
+                                                <label class="custom-control-label" for="updatecms_block">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input" id="deletecms_block"
+                                                       >
+                                                <label class="custom-control-label" for="deletecms_block">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_widget"
+                                   aria-expanded="false" aria-controls="cms_widget"><a><i class="fa fa-square mr-5"></i>widget
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_widget">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input" id="viewcms_widget"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_widget">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcms_widget"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="createcms_widget">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecms_widget"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="updatecms_widget">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecms_widget"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletecms_widget">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_testimonial"
+                                   aria-expanded="false" aria-controls="cms_testimonial"><a><i
+                                        class="fa fa-square mr-5"></i>testimonial
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_testimonial">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewcms_testimonial"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="viewcms_testimonial">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcms_testimonial" >
+                                                <label class="custom-control-label"
+                                                       for="createcms_testimonial">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecms_testimonial" >
+                                                <label class="custom-control-label"
+                                                       for="updatecms_testimonial">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecms_testimonial"
+                                                       >
+                                                <label class="custom-control-label" for="deletecms_page">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_download"
+                                   aria-expanded="false" aria-controls="cms_download"><a><i
+                                        class="fa fa-square mr-5"></i>download
+                                </a></p>
+                                <div class="col-sm">
+                                    <div class="collapse ml-35" id="cms_download">
+                                        <div class="row mt-10">
+                                            <div class="custom-control custom-checkbox ">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="viewcms_download"
+                                                       >
+                                                <label class="custom-control-label" for="viewcms_download">View</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="createcms_download"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="createcms_download">Create</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="updatecms_download"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="updatecms_download">Update</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox ml-10">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="deletecms_download"
+                                                       >
+                                                <label class="custom-control-label"
+                                                       for="deletecms_download">delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- CMS div end -->
+                            <div class="row justify-content-end">
+                                <button type="submit" class="btn btn-success ">Save Role</button>
+                                <button type="button" class="btn btn-warning ml-10">Cancel</button>
+                            </div>
+
                         </div>
-
-                        <div class="custom-control custom-checkbox mt-10">
-                            <input type="checkbox" class="custom-control-input" id="subscription_required" required>
-                            <label class="custom-control-label" for="subscription_required">Is subscription required
-                                for
-                                this role?</label>
-                            <div class="invalid-feedback"> check this..</div>
-                        </div>
-                        <div class="custom-control custom-checkbox mt-10">
-                            <input type="checkbox" class="custom-control-input" id="disable_login" required>
-                            <label class="custom-control-label" for="disable_login">Disable login?</label>
-                            <div class="invalid-feedback"> check this..</div>
-                        </div>
-
-                        <div class="row justify-content-end">
-                            <button type="button" class="btn btn-warning btn-sm">Toggle Collapse state</button>
-                            <button type="button" class="btn btn-success btn-sm ml-10">Check All</button>
-                            <button type="button" class="btn btn-danger btn-sm ml-10">Revoke All</button>
-                        </div>
-                        <hr/>
-                        <div class="row">
-
-                        </div>
-                        <p class="mt-10"><i class="fa fa-th-large"></i> Package <i class="fa fa-square ml-10"></i> Model
-                        </p>
-                        <hr/>
-
-                        <!-- Activity div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> Activity</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#activity"
-                               aria-expanded="false" aria-controls="activity"><a><i class="fa fa-square mr-5"></i>activity
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="activity">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewactivity"
-                                                   required>
-                                            <label class="custom-control-label" for="viewactivity">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deleteactivity"
-                                                   required>
-                                            <label class="custom-control-label" for="deleteactivity">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#http_log"
-                               aria-expanded="false" aria-controls="http_log"><a><i class="fa fa-square mr-5"></i>http_log
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="http_log">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="view_http_log"
-                                                   required>
-                                            <label class="custom-control-label" for="view_http_log">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="delete_http_log"
-                                                   required>
-                                            <label class="custom-control-label" for="delete_http_log">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                        <!-- Activity div end  -->
-
-                        <!-- Settings div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> Settings</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#setting"
-                               aria-expanded="false" aria-controls="setting"><a><i class="fa fa-square mr-5"></i>setting
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="setting">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewsetting"
-                                                   required>
-                                            <label class="custom-control-label" for="viewsetting">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createsetting"
-                                                   required>
-                                            <label class="custom-control-label" for="createsetting">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatesetting"
-                                                   required>
-                                            <label class="custom-control-label" for="updatesetting">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletesetting"
-                                                   required>
-                                            <label class="custom-control-label" for="deletesetting">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#custom_field_setting"
-                               aria-expanded="false" aria-controls="custom_field_setting"><a><i
-                                    class="fa fa-square mr-5"></i>custom_field_setting
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="custom_field_setting">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="viewcustom_field_setting" required>
-                                            <label class="custom-control-label"
-                                                   for="viewcustom_field_setting">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="createcustom_field_setting" required>
-                                            <label class="custom-control-label"
-                                                   for="createcustom_field_setting">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="updatecustom_field_setting" required>
-                                            <label class="custom-control-label"
-                                                   for="updatecustom_field_setting">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="deletecustom_field_setting"
-                                                   required>
-                                            <label class="custom-control-label"
-                                                   for="deletecustom_field_setting">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#module"
-                               aria-expanded="false" aria-controls="module"><a><i class="fa fa-square mr-5"></i>module
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="module">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="manage_module"
-                                                   required>
-                                            <label class="custom-control-label" for="manage_module">manage</label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#theme"
-                               aria-expanded="false" aria-controls="theme"><a><i class="fa fa-square mr-5"></i>theme
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="theme">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="manage_theme"
-                                                   required>
-                                            <label class="custom-control-label" for="manage_theme">manage</label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <!-- Setting Div END-->
-
-                        <!-- User div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> User</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#user"
-                               aria-expanded="false" aria-controls="user"><a><i class="fa fa-square mr-5"></i>user
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="user">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewuser" required>
-                                            <label class="custom-control-label" for="viewuser">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createuser"
-                                                   required>
-                                            <label class="custom-control-label" for="createuser">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updateuser"
-                                                   required>
-                                            <label class="custom-control-label" for="updateuser">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deleteuser"
-                                                   required>
-                                            <label class="custom-control-label" for="deleteuser">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#role"
-                               aria-expanded="false" aria-controls="role"><a><i class="fa fa-square mr-5"></i>role
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="role">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewrole" required>
-                                            <label class="custom-control-label" for="viewrole">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createrole"
-                                                   required>
-                                            <label class="custom-control-label" for="createrole">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updaterole"
-                                                   required>
-                                            <label class="custom-control-label" for="updaterole">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deleterole"
-                                                   required>
-                                            <label class="custom-control-label" for="deleterole">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- user div end -->
-
-                        <!-- Notification div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> Notification</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#Notification_template"
-                               aria-expanded="false" aria-controls="Notification_template"><a><i
-                                    class="fa fa-square mr-5"></i>Notification_template
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="Notification_template">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="viewNotification_template" required>
-                                            <label class="custom-control-label"
-                                                   for="viewNotification_template">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="createNotification_template" required>
-                                            <label class="custom-control-label"
-                                                   for="createNotification_template">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="updateNotification_template" required>
-                                            <label class="custom-control-label"
-                                                   for="updateNotification_template">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="deleteNotification_template"
-                                                   required>
-                                            <label class="custom-control-label"
-                                                   for="deleteNotification_template">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#my_notofication"
-                               aria-expanded="false" aria-controls="my_notofication"><a><i
-                                    class="fa fa-square mr-5"></i>my_notofication
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="my_notofication">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewmy_notofication"
-                                                   required>
-                                            <label class="custom-control-label" for="viewmy_notofication">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="createmy_notofication" required>
-                                            <label class="custom-control-label"
-                                                   for="createmy_notofication">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="updatemy_notofication" required>
-                                            <label class="custom-control-label"
-                                                   for="updatemy_notofication">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="deletemy_notofication"
-                                                   required>
-                                            <label class="custom-control-label"
-                                                   for="deletemy_notofication">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Notification div end -->
-                        <!-- Notification div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> Menu</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#menu"
-                               aria-expanded="false" aria-controls="menu"><a><i class="fa fa-square mr-5"></i>menu
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="menu">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewmenu" required>
-                                            <label class="custom-control-label" for="viewmenu">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createmenu"
-                                                   required>
-                                            <label class="custom-control-label" for="createmenu">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatemenu"
-                                                   required>
-                                            <label class="custom-control-label" for="updatemenu">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletemenu"
-                                                   required>
-                                            <label class="custom-control-label" for="deletemenu">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Notification div end -->
-
-
-                        <!-- CMS div start  -->
-                        <div>
-                            <label class="mt-10 "><i class="fa fa-th-large"></i> CMS</label>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_post"
-                               aria-expanded="false" aria-controls="cms_post"><a><i class="fa fa-square mr-5"></i>post
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_post">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_post"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_post">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_post"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_post">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_post"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_post">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_post"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_post">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_page"
-                               aria-expanded="false" aria-controls="cms_page"><a><i class="fa fa-square mr-5"></i>page
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_page">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_page"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_page">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_page"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_page">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_page"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_page">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_page"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_page">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_category"
-                               aria-expanded="false" aria-controls="cms_category"><a><i class="fa fa-square mr-5"></i>category
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_category">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_category"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_category">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_category"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_category">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_category"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_category">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_category"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_category">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#news"
-                               aria-expanded="false" aria-controls="news"><a><i class="fa fa-square mr-5"></i>news
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="news">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewnews" required>
-                                            <label class="custom-control-label" for="viewnews">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createnews"
-                                                   required>
-                                            <label class="custom-control-label" for="createnews">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatenews"
-                                                   required>
-                                            <label class="custom-control-label" for="updatenews">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletenews"
-                                                   required>
-                                            <label class="custom-control-label" for="deletenews">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_slider"
-                               aria-expanded="false" aria-controls="cms_slider"><a><i class="fa fa-square mr-5"></i>slider
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_slider">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_slider"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_slider">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_slider"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_slider">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_slider"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_slider">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_slider"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_slider">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_faq"
-                               aria-expanded="false" aria-controls="cms_faq"><a><i class="fa fa-square mr-5"></i>faq
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_faq">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_faq"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_faq">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_faq"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_faq">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_faq"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_faq">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_faq"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_faq">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_block"
-                               aria-expanded="false" aria-controls="cms_block"><a><i class="fa fa-square mr-5"></i>block
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_block">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_block"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_block">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_block"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_block">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_block"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_block">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_block"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_block">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_widget"
-                               aria-expanded="false" aria-controls="cms_widget"><a><i class="fa fa-square mr-5"></i>widget
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_widget">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_widget"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_widget">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_widget"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_widget">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_widget"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_widget">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_widget"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_widget">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_testimonial"
-                               aria-expanded="false" aria-controls="cms_testimonial"><a><i
-                                    class="fa fa-square mr-5"></i>testimonial
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_testimonial">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_testimonial"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_testimonial">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="createcms_testimonial" required>
-                                            <label class="custom-control-label"
-                                                   for="createcms_testimonial">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="updatecms_testimonial" required>
-                                            <label class="custom-control-label"
-                                                   for="updatecms_testimonial">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="deletecms_testimonial"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_page">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="ml-20 text-warning" data-toggle="collapse" data-target="#cms_download"
-                               aria-expanded="false" aria-controls="cms_download"><a><i class="fa fa-square mr-5"></i>download
-                            </a></p>
-                            <div class="col-sm">
-                                <div class="collapse ml-35" id="cms_download">
-                                    <div class="row mt-10">
-                                        <div class="custom-control custom-checkbox ">
-                                            <input type="checkbox" class="custom-control-input" id="viewcms_download"
-                                                   required>
-                                            <label class="custom-control-label" for="viewcms_download">View</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="createcms_download"
-                                                   required>
-                                            <label class="custom-control-label" for="createcms_download">Create</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="updatecms_download"
-                                                   required>
-                                            <label class="custom-control-label" for="updatecms_download">Update</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox ml-10">
-                                            <input type="checkbox" class="custom-control-input" id="deletecms_download"
-                                                   required>
-                                            <label class="custom-control-label" for="deletecms_download">delete</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- CMS div end -->
-                           <div class="row justify-content-end">
-                            <button type="button" class="btn btn-success ">Create Role</button>
-                            <button type="button" class="btn btn-warning ml-10">Cancel</button>
-                        </div>
-
                     </div>
-                </div>
+                </form>
             </section>
         </div>
     </div>

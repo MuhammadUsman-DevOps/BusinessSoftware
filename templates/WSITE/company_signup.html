@@ -1,0 +1,131 @@
+{% extends 'bases/site_base.html' %}
+{% load static %}
+{% block title %} Sign Up {% endblock title %}
+{% block main_content %}
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper hk-auth-wrapper">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-5 pa-0">
+                    <div class="auth-cover-img overlay-wrap" style="background-image:url({% static 'img/bg1.jpg' %});">
+                        <div class="auth-cover-info py-xl-0 pt-100 pb-50">
+                            <div class="auth-cover-content w-xxl-75 w-sm-90 w-100">
+                                <h1 class="display-3 text-white mb-20">Enjoy unlimited beautiful display content
+                                    area</h1>
+                                <p class="text-white">The passage experienced a surge in popularity during the 1960s
+                                    when Letraset used it on their dry-transfer sheets, and again during the 90s as
+                                    desktop publishers bundled the text with their software.</p>
+                                <div class="play-wrap">
+                                    <a class="play-btn" href="signup.html#"></a>
+                                    <span>How it works ?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-overlay bg-trans-dark-50"></div>
+                    </div>
+                </div>
+                <div class="col-xl-7 pa-0">
+                    <div class="auth-form-wrap py-xl-0 py-50">
+                        <div class="auth-form w-xxl-55 w-xl-75 w-sm-90 w-100">
+                            <form method="post" class="needs-validation" novalidate>
+                                <h1 class="display-4 mb-10">Sign up for free</h1>
+                                <p class="mb-30">Create your account and start your free trial today</p>
+                                <div class="form-row">
+                                    <div class="col-md-6 form-group">
+                                        <input class="form-control" placeholder="First Name" type="text" name="first_name" required>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input class="form-control" placeholder="Last Name" name="last_name" type="text" required>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <input class="form-control" placeholder="Company Name" name="company_name" id="company_name" type="text" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 form-group">
+                                        <select class="form-control custom-select">
+                                            <option selected="">Company Size</option>
+                                            <option value="20-to-49">
+                                                20 to 49
+                                            </option>
+                                            <option value="2-to-4">
+                                                2 to 4
+                                            </option>
+                                            <option value="5-to-9">
+                                                5 to 9
+                                            </option>
+                                            <option value="10-to-19">
+                                                10 to 19
+                                            </option>
+                                            <option value="more-than-50">
+                                                More than 50
+                                            </option>
+                                            <option value="just-me">
+                                                Just me
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <select class="form-control custom-select">
+                                            <option selected="">Your Role at Company</option>
+                                            <option value="director-administrator">
+                                                Director /&nbsp;Administrator
+                                            </option>
+                                            <option value="human-resources">
+                                                Human Resources
+                                            </option>
+                                            <option value="cto">
+                                                CTO
+                                            </option>
+                                            <option value="other">
+                                                Other
+                                            </option>
+                                            <option value="accountant-bookkeeper">
+                                                Accountant / Bookkeeper
+                                            </option>
+                                            <option value="owner-founder">
+                                                Owner / Founder
+                                            </option>
+                                            <option value="sales-marketing">
+                                                Sales /&nbsp;Marketing
+                                            </option>
+                                            <option value="ceo-cfo-coo">
+                                                CEO /&nbsp;CFO /&nbsp;COO
+                                            </option>
+                                            <option value="developer-designer">
+                                                Developer / Designer
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Email Address" name="email_address" id="email_address" type="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" type="password" name="password" id="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Confirm Password" type="password" name="confirm_password" id="confirm_password" required>
+
+                                    </div>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-25">
+                                    <input class="custom-control-input" id="terms" type="checkbox" checked required>
+                                    <label class="custom-control-label font-14" for="terms">I have read and agree
+                                        to the <a href="#"><u>term and conditions</u></a></label>
+                                </div>
+                                <button class="btn btn-primary btn-block" type="submit">Create Company</button>
+
+                                <p class="text-center mt-4">Already have an account? <a href="#">Sign In</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Main Content -->
+{% endblock main_content %}

@@ -23,6 +23,8 @@ from BusinessSoftware import settings
 urlpatterns = [
     path('dev/', admin.site.urls),
     path('admin/', include("Administration.urls")),
+    path('', include("WSITE.urls")),
+    path('company/', include("Company.urls")),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

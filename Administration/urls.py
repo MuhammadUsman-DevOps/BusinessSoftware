@@ -10,6 +10,8 @@ urlpatterns = [
 
     path('roles/', views.roles_view, name="roles"),
     path('roles/create', views.create_role, name="create_role"),
+    path('roles/<int:role_id>/edit', views.edit_role, name="edit_role"),
+    path('roles/<int:role_id>/delete', views.delete_role, name="delete_role"),
 
     path('cms/pages/', views.pages_view, name="pages"),
 

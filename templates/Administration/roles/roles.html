@@ -8,7 +8,7 @@
         <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
             <div class="row justify-content-between mb-10">
                 <div class="col-lg-6">
-                    <h3> Users</h3>
+                    <h3> Roles</h3>
                 </div>
                 <div class="col-lg-6 text-right">
                     <a href="{% url 'create_role' %}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Add New</a>
@@ -35,33 +35,69 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        {% for role in roles %}
+                                            <tr>
+                                                <td><span
+                                                        class="badge badge-success mt-15 mr-10">{{ role.role_name }}</span>
+                                                </td>
+                                                {% if role.subscription_required %}
+                                                    <td class="text-center">
+                                                        <span class="text-center text-success font-18">
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </span>
+                                                    </td>
+                                                {% else %}
+                                                    <td class="text-center"><span
+                                                            class="text-center text-danger font-18"><i
+                                                            class="fa fa-times-circle"></i></span></td>
+                                                {% endif %}
 
-                                        <tr>
+                                            {% if role.disable_login %}
+                                                    <td class="text-center">
+                                                        <span class="text-center text-success font-18">
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </span>
+                                                    </td>
+                                                {% else %}
+                                                    <td class="text-center"><span
+                                                            class="text-center text-danger font-18"><i
+                                                            class="fa fa-times-circle"></i></span></td>
+                                                {% endif %}
 
+                                            {% if role.active %}
+                                                    <td class="text-center">
+                                                        <span class="text-center text-success font-18">
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </span>
+                                                    </td>
+                                                {% else %}
+                                                    <td class="text-center"><span
+                                                            class="text-center text-danger font-18"><i
+                                                            class="fa fa-times-circle"></i></span></td>
+                                                {% endif %}
 
-                                             <td><span class="badge badge-success mt-15 mr-10">Member</span></td>
-                                            <td class="text-center"><span class="text-center text-success font-18"><i class="fa fa-check-circle"></i></span> </td>
-                                            <td class="text-center"><span class="text-center text-danger font-18"><i class="fa fa-times-circle"></i></span> </td>
-                                            <td class="text-center"><span class="text-center text-warning font-18"><i class="fa fa-check-circle"></i></span> </td>
-                                            <td>2009/04/10</td>
-                                            <td>2009/04/10</td>
-                                            <td>
-                                                <div class="inline-block dropdown">
-                                                    <a class="dropdown-toggle no-caret" data-toggle="dropdown"
-                                                       href="#" aria-expanded="false" role="button">
-                                                        <i class="icon-options-vertical"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-edit"></i>
-                                                            Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-remove"></i>
-                                                            Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-history"></i>
-                                                            Logs</a>
+                                                <td>{{ role.created }}</td>
+                                                <td>{{ role.updated }}</td>
+                                                <td>
+                                                    <div class="inline-block dropdown">
+                                                        <a class="dropdown-toggle no-caret" data-toggle="dropdown"
+                                                           href="#" aria-expanded="false" role="button">
+                                                            <i class="icon-options-vertical"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{% url 'edit_role' role.pk %}"><i class="fa fa-edit"></i>
+                                                                Edit</a>
+                                                            <a class="dropdown-item" href="{% url 'delete_role' role.pk %}"><i
+                                                                    class="fa fa-remove"></i>
+                                                                Delete</a>
+                                                            <a class="dropdown-item" href="#"><i
+                                                                    class="fa fa-history"></i>
+                                                                Logs</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
 
                                         </tbody>
 

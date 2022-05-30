@@ -28,19 +28,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Administration/payments" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\pages" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\users" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\bases" />
+      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\WSITE" />
       <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\payments" />
       <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\announcements" />
       <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\faqs" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\roles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\pages" />
+      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\users" />
     </key>
   </component>
   <component name="RunManager" selected="Python.urls">
@@ -110,7 +110,14 @@
       <workItem from="1652038969177" duration="2088000" />
       <workItem from="1652090441707" duration="4636000" />
       <workItem from="1652104970684" duration="12318000" />
-      <workItem from="1652259181095" duration="4407000" />
+      <workItem from="1652259181095" duration="5060000" />
+      <workItem from="1652297209975" duration="3769000" />
+      <workItem from="1652686448892" duration="4234000" />
+      <workItem from="1652944009859" duration="2478000" />
+      <workItem from="1652955892300" duration="12392000" />
+      <workItem from="1653026143552" duration="3220000" />
+      <workItem from="1653311623066" duration="108000" />
+      <workItem from="1653923181821" duration="1337000" />
     </task>
     <servers />
   </component>
@@ -118,17 +125,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1651087996333">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="2606" y="234" key="FileChooserDialogImpl" timestamp="1653311698260">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="2606" y="234" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1653311698260" />
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1651087996333" />
-    <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1652259198405">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1652693084959">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1652693084959" />
+    <state x="2501" y="320" key="com.intellij.ide.util.TipDialog" timestamp="1653311661942">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1652686662370" />
+    <state x="2501" y="320" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1653311661942" />
+    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1652299485004" />
+    <state x="132" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1652692974586">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="256" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1652259198405" />
-    <state x="132" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1652121671665">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
+    <state x="132" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1652692974586" />
     <state x="132" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1652121671665" />
   </component>
 </project>

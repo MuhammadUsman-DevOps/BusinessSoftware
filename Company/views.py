@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def company_base(request):
+    return render(request, template_name="bases/company_base.html")
+
+
+def dashboard(request):
+    return render(request, template_name="Company/dashboard.html")
