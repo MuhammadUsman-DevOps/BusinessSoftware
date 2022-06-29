@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8036a76-2dd7-4a8e-a2da-739f0a8866c9" name="Default Changelist" comment="" />
+    <list default="true" id="c8036a76-2dd7-4a8e-a2da-739f0a8866c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/Company/bank_accounts/add_bank_account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/bank_accounts/bank_accounts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/counter_party/add_counter_party.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/counter_party/counter_parties.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/investors/add_investors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/investors/all_investors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Company/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BusinessSoftware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BusinessSoftware.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Company/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bases/company_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bases/company_base.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +32,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="28NYkERBhd0XZJUJeaTHNCSK2DO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,19 +48,21 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Company/investors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\bases" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\WSITE" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\payments" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\announcements" />
-      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\faqs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Company\countery_party" />
       <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\cms\pages" />
       <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Administration\users" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Company\investors" />
+      <recent name="D:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Company\countery_party" />
+      <recent name="D:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Company\bank_accounts" />
+      <recent name="D:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\Company" />
+      <recent name="C:\Users\Muhammad Usman\PycharmProjects\BusinessSoftware\templates\bases" />
     </key>
   </component>
   <component name="RunManager" selected="Python.urls">
@@ -117,7 +139,8 @@
       <workItem from="1652955892300" duration="12392000" />
       <workItem from="1653026143552" duration="3220000" />
       <workItem from="1653311623066" duration="108000" />
-      <workItem from="1653923181821" duration="1337000" />
+      <workItem from="1653923181821" duration="2566000" />
+      <workItem from="1656499963518" duration="4729000" />
     </task>
     <servers />
   </component>
@@ -130,6 +153,10 @@
     </state>
     <state x="2606" y="234" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1653311698260" />
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1651087996333" />
+    <state x="277" y="75" key="SettingsEditor" timestamp="1656502133383">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1656502133383" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1652693084959">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

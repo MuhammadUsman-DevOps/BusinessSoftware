@@ -1,0 +1,57 @@
+{% extends 'bases/company_base.html' %}
+{% load static %}
+{% block title %} Counter Parties {% endblock title %}
+{% block main_content %}
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper">
+        <!-- Container -->
+        <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                                <div class="card-body pa-0">
+                                    <div class="table-wrap">
+                                        <div class="table-responsive">
+                                            <table class="table table-lg table-hover mb-0">
+                                                <thead class="thead-primary">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Short Name</th>
+                                                    <th>Counter Party Type</th>
+                                                    <th>Country</th>
+                                                    <th>City</th>
+                                                    <th>State</th>
+                                                    <th>Zip Code</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Lorem Ipsum</td>
+                                                    <td>LI</td>
+                                                    <td><span class="badge badge-success">Sole</span></td>
+                                                    <td>USA</td>
+                                                    <td>New York</td>
+                                                    <td>New York</td>
+                                                    <td>2546</td>
+                                                    <td>
+                                                        <a href="#" class="badge badge-warning"> <i class="fa fa-edit"></i></a>
+                                                        <a href="#" class="badge badge-danger"> <i class="fa fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+{% endblock main_content %}

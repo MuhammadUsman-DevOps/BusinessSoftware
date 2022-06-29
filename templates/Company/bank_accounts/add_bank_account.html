@@ -1,0 +1,147 @@
+{% extends 'bases/company_base.html' %}
+{% load static %}
+{% block title %} Add Bank Account {% endblock title %}
+{% block main_content %}
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper">
+        <!-- Container -->
+        <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <section class="hk-sec-wrapper">
+                        <h5 class="hk-sec-title">Add New Bank Account</h5>
+                        <div class="row">
+                            <div class="col-sm">
+                                <form class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-10">
+                                            <label for="validationCustom01">Name</label>
+                                            <input type="text" class="form-control" id="validationCustom01"
+                                                   placeholder="Account Name" value="" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-10">
+                                            <label for="validationCustom02">Short Name</label>
+                                            <input type="text" class="form-control" id="validationCustom02"
+                                                   placeholder="Short Name" value="" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-10">
+                                            <label for="validationCustomUsername">Type</label>
+                                            <input type="text" class="form-control" id="validationCustom02"
+                                                   placeholder="Type" value="" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-1 mb-10">
+                                            <label for="validationCustom03">Currency</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                   placeholder="$" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a Account currency.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom04">Account Number</label>
+                                            <input type="text" class="form-control" id="validationCustom04"
+                                                   placeholder="Account Number" required>
+                                            <div class="invalid-feedback">
+                                                Please provide account number.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-10">
+                                            <label for="validationCustom05">Sort Code</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                   placeholder="Sort Code" required>
+                                            <div class="invalid-feedback">
+                                                Please provide sort code.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom05">IBAN</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                   placeholder="IBAN" required>
+                                            <div class="invalid-feedback">
+                                                Please provide IBAN.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-10">
+                                            <label for="validationCustom05">Swift Code</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                   placeholder="Swift Code" required>
+                                            <div class="invalid-feedback">
+                                                Please provide swift code.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 mb-10">
+                                            <label for="validationCustom05">BIC</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                   placeholder="BIC" required>
+                                            <div class="invalid-feedback">
+                                                Please provide BIC.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-10">
+                                            <label for="validationCustom03">Address Line</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                   placeholder="Address Line" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid address line.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom03">Country</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                   placeholder="Country" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid country.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom03">City</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                   placeholder="City" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid city.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom04">State</label>
+                                            <input type="text" class="form-control" id="validationCustom04"
+                                                   placeholder="State" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-10">
+                                            <label for="validationCustom05">Zip</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                   placeholder="Zip" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid zip.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Save Settings</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+{% endblock main_content %}
