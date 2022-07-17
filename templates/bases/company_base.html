@@ -223,62 +223,75 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#cp">
-                                <span class="feather-icon"><i data-feather="user"></i></span>
-                                <span class="nav-link-text">Counter Party</span>
+                               data-target="#static_data">
+                                <span class="feather-icon"><i data-feather="package"></i></span>
+                                <span class="nav-link-text">Static Data</span>
                             </a>
-                            <ul id="cp" class="nav flex-column collapse collapse-level-1">
+                            <ul id="static_data" class="nav flex-column collapse">
+                                
                                 <li class="nav-item">
-                                    <ul class="nav flex-column">
+                                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                                       data-target="#cp">
+                                        <span class="feather-icon"><i data-feather="user"></i></span>
+                                        <span class="nav-link-text">Counter Party</span>
+                                    </a>
+                                    <ul id="cp" class="nav flex-column collapse collapse-level-1">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'add_counter_party' %}">Add New Party</a>
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'add_counter_party' %}">Add New Party</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'all_counter_parties' %}">All Counter
+                                                        Parties</a>
+                                                </li>
+                                            </ul>
                                         </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                                       data-target="#investor">
+                                        <span class="feather-icon"><i data-feather="user"></i></span>
+                                        <span class="nav-link-text">Investors</span>
+                                    </a>
+                                    <ul id="investor" class="nav flex-column collapse collapse-level-1">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'all_counter_parties' %}">All Counter
-                                                Parties</a>
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'add_investor' %}">Add New Investor</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'all_investors' %}">All Investors</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
+                                       data-target="#bank_account">
+                                        <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
+                                        <span class="nav-link-text">Bank Accounts</span>
+                                    </a>
+                                    <ul id="bank_account" class="nav flex-column collapse collapse-level-1">
+                                        <li class="nav-item">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'add_bank_account' %}">Add New Account</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'all_bank_accounts' %}">All Bank Accounts</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#investor">
-                                <span class="feather-icon"><i data-feather="user"></i></span>
-                                <span class="nav-link-text">Investors</span>
-                            </a>
-                            <ul id="investor" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'add_investor' %}">Add New Investor</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'all_investors' %}">All Investors</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
-                               data-target="#bank_account">
-                                <span class="feather-icon"><i data-feather="dollar-sign"></i></span>
-                                <span class="nav-link-text">Bank Accounts</span>
-                            </a>
-                            <ul id="bank_account" class="nav flex-column collapse collapse-level-1">
-                                <li class="nav-item">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'add_bank_account' %}">Add New Account</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'all_bank_accounts' %}">All Bank Accounts</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                    
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:void(0);" data-toggle="collapse"
                                data-target="#app_drp">

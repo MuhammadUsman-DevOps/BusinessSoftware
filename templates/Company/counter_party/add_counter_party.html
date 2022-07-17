@@ -9,31 +9,40 @@
             <!-- Row -->
             <div class="row">
                 <div class="col-xl-12">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                       {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    
                     <section class="hk-sec-wrapper">
                         <h5 class="hk-sec-title">Add New Counter Party</h5>
                         <div class="row">
                             <div class="col-sm">
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" method="post" novalidate>
+                                     {% csrf_token %}
                                     <div class="form-row">
                                         <div class="col-md-4 mb-10">
-                                            <label for="validationCustom01">Name</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
+                                            <label for="party_name">Name</label>
+                                            <input type="text" class="form-control" id="party_name" name="party_name"
                                                    placeholder="Company Name" value="" required>
                                             <div class="valid-feedback">
                                                 Looks good!
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-10">
-                                            <label for="validationCustom02">Short Name</label>
-                                            <input type="text" class="form-control" id="validationCustom02"
+                                            <label for="short_name">Short Name</label>
+                                            <input type="text" class="form-control" id="short_name" name="short_name"
                                                    placeholder="Short Name" value="" required>
                                             <div class="valid-feedback">
                                                 Looks good!
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-10">
-                                            <label for="validationCustomUsername">Counter Party Type</label>
-                                            <input type="text" class="form-control" id="validationCustom02"
+                                            <label for="counter_party_type">Counter Party Type</label>
+                                            <input type="text" class="form-control" id="counter_party_type" name="counter_party_type"
                                                    placeholder="Counter Party Type" value="" required>
                                             <div class="valid-feedback">
                                                 Looks good!
@@ -42,32 +51,32 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-3 mb-10">
-                                            <label for="validationCustom03">Country</label>
-                                            <input type="text" class="form-control" id="validationCustom03"
+                                            <label for="country">Country</label>
+                                            <input type="text" class="form-control" id="country" name="country"
                                                    placeholder="Country" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid country.
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-10">
-                                            <label for="validationCustom03">City</label>
-                                            <input type="text" class="form-control" id="validationCustom03"
+                                            <label for="city">City</label>
+                                            <input type="text" class="form-control" id="city" name="city"
                                                    placeholder="City" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid city.
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-10">
-                                            <label for="validationCustom04">State</label>
-                                            <input type="text" class="form-control" id="validationCustom04"
+                                            <label for="state">State</label>
+                                            <input type="text" class="form-control" id="state" name="state"
                                                    placeholder="State" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid state.
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-10">
-                                            <label for="validationCustom05">Zip</label>
-                                            <input type="text" class="form-control" id="validationCustom05"
+                                            <label for="zip_code">Zip</label>
+                                            <input type="text" class="form-control" id="zip_code" name="zip_code"
                                                    placeholder="Zip" required>
                                             <div class="invalid-feedback">
                                                 Please provide a valid zip.

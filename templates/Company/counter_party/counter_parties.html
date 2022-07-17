@@ -27,19 +27,21 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                 {% for party in counter_parties %}
                                                 <tr>
-                                                    <td>Lorem Ipsum</td>
-                                                    <td>LI</td>
-                                                    <td><span class="badge badge-success">Sole</span></td>
-                                                    <td>USA</td>
-                                                    <td>New York</td>
-                                                    <td>New York</td>
-                                                    <td>2546</td>
+                                                    <td>{{ party.counter_party_name }}</td>
+                                                    <td>{{ party.short_name }}</td>
+                                                    <td><span class="badge badge-success">{{ party.countery_party_type }}</span></td>
+                                                    <td>{{ party.country }}</td>
+                                                    <td>{{ party.city }}</td>
+                                                    <td>{{ party.state }}</td>
+                                                    <td>{{ party.zip_code }}</td>
                                                     <td>
                                                         <a href="#" class="badge badge-warning"> <i class="fa fa-edit"></i></a>
                                                         <a href="#" class="badge badge-danger"> <i class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
+                                                {% endfor %}
 
                                                 </tbody>
                                             </table>
